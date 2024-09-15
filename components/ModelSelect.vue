@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {imageGenModels, textGenModels, uniModals} from "~/utils/db";
+import {textGenModels, uniModals} from "~/utils/db";
 
 const {t} = useI18n()
 const {selectedModel, openModelSelect} = useGlobalState()
@@ -23,13 +23,6 @@ const groups = computed(() => [
     key: 'text generation',
     label: t('text_generation'),
     commands: textGenModels.map(i => ({
-      id: i.id,
-      label: i.name
-    }))
-  }, {
-    key: 'image generation',
-    label: t('image_generation'),
-    commands: imageGenModels.map(i => ({
       id: i.id,
       label: i.name
     }))
