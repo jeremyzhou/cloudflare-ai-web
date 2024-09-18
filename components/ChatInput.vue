@@ -119,13 +119,11 @@ const handlePaste = (e: ClipboardEvent) => {
         </li>
       </ul>
     </div>
-    <div class="flex items-end">
-      <!-- 
+    <div class="flex items-end"> 
       <UTooltip :text="addHistory?$t('with_history'):$t('without_history')">
         <UButton class="m-1" @click="addHistory = !addHistory" :color="addHistory?'primary':'gray'"
                  icon="i-heroicons-clock-solid"/>
       </UTooltip>
-      -->
       <UTooltip v-if="selectedModel.type === 'universal'" :text="$t('add_image') + '(' + $t('support_paste') + ')'">
         <UButton @click="handleAddFiles" color="white" class="m-1" icon="i-heroicons-paper-clip-16-solid"/>
       </UTooltip>
