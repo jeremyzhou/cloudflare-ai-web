@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {textGenModels, uniModals} from "~/utils/db";
+import {uniModals} from "~/utils/db";
 
 const {t} = useI18n()
 const {selectedModel, openModelSelect} = useGlobalState()
