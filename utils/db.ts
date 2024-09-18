@@ -82,7 +82,7 @@ export const uniModals: Model[] = [
     }
 ]
 
-export const textGenModels: Model[] = [{
+//export const textGenModels: Model[] = [{
 //     id: 'gpt-3.5-turbo',
 //     name: 'ChatGPT-3.5-turbo',
 //     provider: 'openai',
@@ -123,7 +123,7 @@ export const textGenModels: Model[] = [{
 //     name: 'llama-3-8b-instruct',
 //     provider: 'workers-ai',
 //     type: 'chat'
-}]
+//}]
 
 // export const imageGenModels: Model[] = [{
 //     id: '@cf/lykon/dreamshaper-8-lcm',
