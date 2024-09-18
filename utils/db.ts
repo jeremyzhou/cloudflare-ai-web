@@ -143,4 +143,4 @@ export const textGenModels: Model[] = [{
 // }]
 
 //export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]
-export const models: Model[] = [...uniModals, ...textGenModels]
+export const models: Model[] = [...uniModals]
