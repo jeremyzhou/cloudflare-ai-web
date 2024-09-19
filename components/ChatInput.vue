@@ -93,16 +93,17 @@ const handlePaste = (e: ClipboardEvent) => {
 }
 
 export default {
-  data() {
-    return {
-      input: '' // 用于绑定 UTextarea 的文本内容
+  setup() {
+    input = ref('');
+
+    const handleButtonClick = (text) => {
+      input.value = text;
     };
-  },
-  methods: {
-    handleButtonClick(text) {
-      // 将按钮的文本赋值给 UTextarea
-      this.input = text;
-    }
+
+    return {
+      input,
+      handleButtonClick
+    };
   }
 };
 </script>
