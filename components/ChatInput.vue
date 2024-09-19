@@ -135,11 +135,25 @@ const handlePaste = (e: ClipboardEvent) => {
       <UButton @click="handleInput($event)" :disabled="loading" class="m-1">
         {{ $t('send') }}
       </UButton>
-      <UButton color="white" class="m-1" icon="i-heroicons-paper-clip-16-solid">
-        你是一个专业的医生，如果我头疼
+    </div>
+    <div class="flex items-end"> 
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+        你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！
       </UButton>
-      <UButton color="white" class="m-1" icon="i-heroicons-paper-clip-16-solid">
-        分析报告
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+        你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！
+      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+        你是一个专业的医生，如果我头疼，该如何治疗！
+      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+        你是一个专业的医生，如果我感冒咳嗽，该如何治疗！
+      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+        你是一个专业的医生，如果我发烧干咳，该如何治疗！
+      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+        你是一个专业的医生，如果我拉肚子，该如何治疗！
       </UButton>
     </div>
   </div>
