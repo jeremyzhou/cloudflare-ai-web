@@ -68,12 +68,12 @@ export const initialSettings = {
 export type Settings = typeof initialSettings
 
 export const uniModals: Model[] = [
-    {
-        id: 'gemini-1.5-flash',
-        name: 'Gemini 1.5 flash',
-        provider: 'google',
-        type: 'universal'
-    },
+    // {
+    //     id: 'gemini-1.5-flash',
+    //     name: 'Gemini 1.5 flash',
+    //     provider: 'google',
+    //     type: 'universal'
+    // },
     {
         id: 'gemini-1.5-pro',
         name: 'Gemini 1.5 Pro',
@@ -99,10 +99,10 @@ export const textGenModels: Model[] = [{
 //     provider: 'workers-ai',
 //     type: 'chat'
 // }, {
-   id: '@cf/google/gemma-7b-it-lora',
-   name: 'gemma-7b-it-lora',
-   provider: 'workers-ai',
-   type: 'chat'
+//    id: '@cf/google/gemma-7b-it-lora',
+//    name: 'gemma-7b-it-lora',
+//    provider: 'workers-ai',
+//    type: 'chat'
 // }, {
 //     id: '@hf/thebloke/openhermes-2.5-mistral-7b-awq',
 //     name: 'openhermes-2.5-mistral-7b-awq',
@@ -123,7 +123,7 @@ export const textGenModels: Model[] = [{
 //     name: 'llama-3-8b-instruct',
 //     provider: 'workers-ai',
 //     type: 'chat'
-//}]
+}]
 
 // export const imageGenModels: Model[] = [{
 //     id: '@cf/lykon/dreamshaper-8-lcm',
@@ -140,7 +140,7 @@ export const textGenModels: Model[] = [{
 //     name: 'stable-diffusion-xl-lightning',
 //     provider: 'workers-ai-image',
 //     type: 'text-to-image'
-}]
+// }]
 
 //export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]
 export const models: Model[] = [...uniModals, ...textGenModels]
