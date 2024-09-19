@@ -62,18 +62,18 @@ export const DB = new Database();
 export const initialSettings = {
     openaiKey: '',
     image_steps: 20,
-    system_prompt: 'You are ChatGPT, a large language model trained by OpenAI. Follow the user\'s instructions carefully. Respond using markdown.',
+    system_prompt: 'You are Gemini, a large language model trained by Google. If you are a doctor, follow the user\'s instructions carefully. Respond using markdown.',
 }
 
 export type Settings = typeof initialSettings
 
 export const uniModals: Model[] = [
-    // {
-    //     id: 'gemini-1.5-flash',
-    //     name: 'Gemini 1.5 flash',
-    //     provider: 'google',
-    //     type: 'universal'
-    // },
+    {
+        id: 'gemini-1.5-flash',
+        name: 'Gemini 1.5 flash',
+        provider: 'google',
+        type: 'universal'
+    },
     {
         id: 'gemini-1.5-pro',
         name: 'Gemini 1.5 Pro',
