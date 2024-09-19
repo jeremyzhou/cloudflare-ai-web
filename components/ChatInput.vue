@@ -109,7 +109,7 @@ function handleButtonClick(text: string) {
 <template>
   <div class="relative">
     <div class="absolute bottom-10 w-full flex flex-col">
-      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" style="display: none;"
+      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" 
                @click="openModelSelect = !openModelSelect">
         {{ selectedModel.name }}
         <template #trailing>
@@ -148,7 +148,7 @@ function handleButtonClick(text: string) {
                  @paste="handlePaste"
                  autofocus :rows="1" autoresize
                  class="flex-1 max-h-48 overflow-y-auto p-1"
-                 readonly />
+                 />
       <UButton @click="handleInput" :disabled="loading" class="m-1">
         {{ $t('send') }}
       </UButton>
