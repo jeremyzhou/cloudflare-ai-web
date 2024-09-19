@@ -135,6 +135,8 @@ const handlePaste = (e: ClipboardEvent) => {
       <UButton @click="handleInput($event)" :disabled="loading" class="m-1">
         {{ $t('send') }}
       </UButton>
+      <UButton @click="handleAddFiles" color="white" text="你是一个专业的医生，如果我头疼，" class="m-1" icon="i-heroicons-paper-clip-16-solid"/>
+      <UButton @click="handleAddFiles" color="white" text="分析报告" class="m-1" icon="i-heroicons-paper-clip-16-solid"/>
     </div>
   </div>
 </template>
