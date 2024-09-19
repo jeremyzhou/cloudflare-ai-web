@@ -1,123 +1,122 @@
 <script setup lang="ts">
 import {compressionFile, handleImgZoom} from "~/utils/tools";
+import { ref, onMounted, watch, toRaw, onUnmounted } from 'vue';
 
-const input = ref('')
-const addHistory = ref(true)
+const input = ref('');
+const addHistory = ref(true);
 const fileList = ref<{
   file: File
   url: string
-}[]>([])
-const {openModelSelect} = useGlobalState()
+}[]>([]);
+const { openModelSelect } = useGlobalState();
 
+// 在挂载时从本地存储获取 addHistory 值
 onMounted(() => {
-  addHistory.value = localStorage.getItem('addHistory') === 'true'
-})
+  addHistory.value = localStorage.getItem('addHistory') === 'true';
+});
+
+// 监听 addHistory 的变化并存储到本地
 watch(addHistory, () => {
-  localStorage.setItem('addHistory', addHistory.value.toString())
-})
+  localStorage.setItem('addHistory', addHistory.value.toString());
+});
 
 const p = defineProps<{
-  loading: boolean
-  selectedModel: Model
-
+  loading: boolean;
+  selectedModel: Model;
   handleSend: (input: string, addHistory: boolean, files: {
-    file: File
-    url: string
-  }[]) => void
-}>()
+    file: File;
+    url: string;
+  }[]) => void;
+}>();
 
+// 处理输入事件
 function handleInput(e: KeyboardEvent) {
   if (e.shiftKey) {
-    input.value += '\n'
+    input.value += '\n';
   }
   if (e.isComposing || e.shiftKey) {
-    return
+    return;
   }
 
-  if (input.value.trim() === '') return
-  if (p.loading) return
-  p.handleSend(input.value, addHistory.value, toRaw(fileList.value))
-  input.value = ''
-  fileList.value = []
+  if (input.value.trim() === '') return;
+  if (p.loading) return;
+  p.handleSend(input.value, addHistory.value, toRaw(fileList.value));
+  input.value = '';
+  fileList.value = [];
 }
 
-const imageType = ['image/png', 'image/jpeg', 'image/webp', 'image/heic', 'image/heif']
+const imageType = ['image/png', 'image/jpeg', 'image/webp', 'image/heic', 'image/heif'];
 
+// 检查文件是否符合要求
 function checkFile(file: File) {
   if (fileList.value.length >= 5) {
-    alert('You can only upload up to 5 images')
-    return false
+    alert('You can only upload up to 5 images');
+    return false;
   }
   if (imageType.indexOf(file.type) === -1) {
-    alert(imageType.join(', ') + ' only')
-    return false
+    alert(imageType.join(', ') + ' only');
+    return false;
   }
-  return true
+  return true;
 }
 
+// 处理添加文件
 function handleAddFiles() {
-  const input = document.createElement('input')
-  input.type = 'file'
-  input.accept = imageType.join(',')
-  input.multiple = true
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = imageType.join(',');
+  input.multiple = true;
   input.onchange = async () => {
-    document.body.style.cursor = 'wait'
+    document.body.style.cursor = 'wait';
 
-    const files = Array.from(input.files || [])
+    const files = Array.from(input.files || []);
     for (const f of files) {
       if (!checkFile(f)) continue;
-      const file = await compressionFile(f, f.type)
-      const url = URL.createObjectURL(file)
-      fileList.value.push({file, url})
+      const file = await compressionFile(f, f.type);
+      const url = URL.createObjectURL(file);
+      fileList.value.push({ file, url });
     }
 
-    document.body.style.cursor = 'auto'
-  }
-  input.click()
+    document.body.style.cursor = 'auto';
+  };
+  input.click();
 }
 
+// 处理文件粘贴
+const handlePaste = (e: ClipboardEvent) => {
+  const files = Array.from(e.clipboardData?.files || []);
+  files.forEach(file => {
+    if (!checkFile(file)) return;
+
+    const url = URL.createObjectURL(file);
+    fileList.value.push({ file, url });
+  });
+};
+
+// 清除文件对象 URL
 onUnmounted(() => {
   fileList.value.forEach(i => {
-    URL.revokeObjectURL(i.url)
-  })
-})
+    URL.revokeObjectURL(i.url);
+  });
+});
 
-const handlePaste = (e: ClipboardEvent) => {
-  const files = Array.from(e.clipboardData?.files || [])
-  files.forEach(file => {
-    if (!checkFile(file)) return
-
-    const url = URL.createObjectURL(file)
-    fileList.value.push({file, url})
-  })
+// 处理按钮点击，将文本复制到输入框
+function handleButtonClick(text: string) {
+  input.value = text;
 }
-
-export default {
-  setup() {
-    input = ref('');
-
-    const handleButtonClick = (text) => {
-      input.value = text;
-    };
-
-    return {
-      input,
-      handleButtonClick
-    };
-  }
-};
 </script>
 
 <template>
   <div class="relative">
     <div class="absolute bottom-10 w-full flex flex-col">
       <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" style="display: none;"
-               @click="openModelSelect=!openModelSelect">
+               @click="openModelSelect = !openModelSelect">
         {{ selectedModel.name }}
         <template #trailing>
           <UIcon name="i-heroicons-chevron-down-solid"/>
         </template>
       </UButton>
+
       <ul v-if="selectedModel.type === 'universal'" style="margin: 0"
           class="flex flex-wrap bg-white dark:bg-[#121212] rounded-t-md">
         <li v-for="file in fileList" :key="file.url" class="relative group/img">
@@ -134,47 +133,52 @@ export default {
         </li>
       </ul>
     </div>
-    <div class="flex items-end"> 
-      <UTooltip :text="addHistory?$t('with_history'):$t('without_history')">
-        <UButton class="m-1" @click="addHistory = !addHistory" :color="addHistory?'primary':'gray'"
+
+    <div class="flex items-end">
+      <UTooltip :text="addHistory ? $t('with_history') : $t('without_history')">
+        <UButton class="m-1" @click="addHistory = !addHistory" :color="addHistory ? 'primary' : 'gray'"
                  icon="i-heroicons-clock-solid"/>
       </UTooltip>
       <UTooltip v-if="selectedModel.type === 'universal'" :text="$t('add_image') + '(' + $t('support_paste') + ')'" >
         <UButton @click="handleAddFiles" color="white" class="m-1" icon="i-heroicons-paper-clip-16-solid"/>
       </UTooltip>
-      <UTextarea v-model="input" :placeholder="$t('please_input_text') + '...' "
-                 @keydown.prevent.enter="handleInput($event)"
+
+      <UTextarea v-model="input" :placeholder="$t('please_input_text') + '...'"
+                 @keydown.prevent.enter="handleInput"
                  @paste="handlePaste"
                  autofocus :rows="1" autoresize
                  class="flex-1 max-h-48 overflow-y-auto p-1"
                  readonly />
-      <UButton @click="handleInput($event)" :disabled="loading" class="m-1">
+      <UButton @click="handleInput" :disabled="loading" class="m-1">
         {{ $t('send') }}
       </UButton>
     </div>
-    <div class="flex items-end"> 
+
+    <div class="flex items-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-             @click="handleButtonClick('你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！')">
-      你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！
-    </UButton>
+               @click="handleButtonClick('你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！')">
+        你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！
+      </UButton>
     </div>
-    <div class="flex items-end"> 
+
+    <div class="flex items-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-             @click="handleButtonClick('你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！')">
-      你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！
-    </UButton>
+               @click="handleButtonClick('你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！')">
+        你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！
+      </UButton>
     </div>
-    <div class="flex items-end"> 
+
+    <div class="flex items-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-             @click="handleButtonClick('你是一个专业的医生，如果我感冒咳嗽，该如何治疗！')">
+               @click="handleButtonClick('你是一个专业的医生，如果我感冒咳嗽，该如何治疗！')">
         你是一个专业的医生，如果我感冒咳嗽，该如何治疗！
       </UButton>
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-             @click="handleButtonClick('你是一个专业的医生，如果我发烧干咳，该如何治疗！')">
+               @click="handleButtonClick('你是一个专业的医生，如果我发烧干咳，该如何治疗！')">
         你是一个专业的医生，如果我发烧干咳，该如何治疗！
       </UButton>
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-             @click="handleButtonClick('你是一个专业的医生，如果我拉肚子，该如何治疗！')">
+               @click="handleButtonClick('你是一个专业的医生，如果我拉肚子，该如何治疗！')">
         你是一个专业的医生，如果我拉肚子，该如何治疗！
       </UButton>
     </div>
