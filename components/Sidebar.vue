@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {useGlobalState} from "~/utils/store";
 
-const {openAside, openSettings} = useGlobalState()
-//const {openSettings} = useGlobalState()
+//const {openAside, openSettings} = useGlobalState()
+const {openSettings} = useGlobalState()
 
 defineProps<{
   tabs: TabItem[]
@@ -17,6 +17,7 @@ defineProps<{
 <template>
   <div :class="{mask:openAside}" @click="openAside=!openAside"></div>
   <aside class="w-48 flex flex-col transition-all mobile-bar mr-1" :class="{hide:!openAside}">
+    <!-- 
     <ol id="tabEl" class="flex flex-col space-y-1 overflow-y-auto h-full scrollbar-hide pt-20"
         @click="handleSwitchChat">
       <li v-for="i in tabs" :key="i.id" class="rounded p-1.5 mx-1 cursor-pointer bg-white
@@ -29,11 +30,14 @@ defineProps<{
                class="shrink-0 hover:bg-red-500 transition-all"/>
       </li>
     </ol>
+    -->
     <div class="flex my-1">
+      <!-- 
       <IButton name="i-heroicons-cog-8-tooth" @click="openSettings=!openSettings"/>
       <UButton class="ml-auto" variant="soft" @click="handleNewChat">
         {{ $t('new_chat') }} +
       </UButton>
+      -->
     </div>
   </aside>
 </template>
