@@ -82,7 +82,7 @@ export const uniModals: Model[] = [
     }
 ]
 
-//export const textGenModels: Model[] = [{
+export const textGenModels: Model[] = [{
 //     id: 'gpt-3.5-turbo',
 //     name: 'ChatGPT-3.5-turbo',
 //     provider: 'openai',
@@ -99,10 +99,10 @@ export const uniModals: Model[] = [
 //     provider: 'workers-ai',
 //     type: 'chat'
 // }, {
-//    id: '@cf/google/gemma-7b-it-lora',
-//    name: 'gemma-7b-it-lora',
-//    provider: 'workers-ai',
-//    type: 'chat'
+   id: '@cf/google/gemma-7b-it-lora',
+   name: 'gemma-7b-it-lora',
+   provider: 'workers-ai',
+   type: 'chat'
 // }, {
 //     id: '@hf/thebloke/openhermes-2.5-mistral-7b-awq',
 //     name: 'openhermes-2.5-mistral-7b-awq',
@@ -140,7 +140,7 @@ export const uniModals: Model[] = [
 //     name: 'stable-diffusion-xl-lightning',
 //     provider: 'workers-ai-image',
 //     type: 'text-to-image'
-// }]
+}]
 
 //export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]
-export const models: Model[] = [uniModals]
+export const models: Model[] = [...uniModals, ...textGenModels]
