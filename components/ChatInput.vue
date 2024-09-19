@@ -109,7 +109,7 @@ function handleButtonClick(text: string) {
 <template>
   <div class="relative">
     <div class="absolute bottom-10 w-full flex flex-col">
-      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" 
+      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" style="display: none;"
                @click="openModelSelect = !openModelSelect">
         {{ selectedModel.name }}
         <template #trailing>
@@ -117,7 +117,7 @@ function handleButtonClick(text: string) {
         </template>
       </UButton>
 
-      <ul v-if="selectedModel.type === 'universal'" style="margin: 0" style="display: none;"
+      <ul v-if="selectedModel.type === 'universal'" style="margin: 0" 
           class="flex flex-wrap bg-white dark:bg-[#121212] rounded-t-md">
         <li v-for="file in fileList" :key="file.url" class="relative group/img">
           <button @click="fileList.splice(fileList.indexOf(file), 1)"
