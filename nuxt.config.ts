@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-            title: '慧医小助手 design by 周子皓',
+            title: '慧医小灵通 design by 周子皓',
             meta: [
                 {
                     name: 'keywords',
