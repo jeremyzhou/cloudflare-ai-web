@@ -91,6 +91,20 @@ const handlePaste = (e: ClipboardEvent) => {
     fileList.value.push({file, url})
   })
 }
+
+export default {
+  data() {
+    return {
+      input: '' // 用于绑定 UTextarea 的文本内容
+    };
+  },
+  methods: {
+    handleButtonClick(text) {
+      // 将按钮的文本赋值给 UTextarea
+      this.input = text;
+    }
+  }
+};
 </script>
 
 <template>
@@ -138,23 +152,28 @@ const handlePaste = (e: ClipboardEvent) => {
       </UButton>
     </div>
     <div class="flex items-end"> 
-      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
-        你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！
-      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
+             @click="handleButtonClick('你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！')">
+      你是一个专业的医生，请解释这张化验单上异常指标，并简单分析！
+    </UButton>
     </div>
     <div class="flex items-end"> 
-      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
-        你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！
-      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
+             @click="handleButtonClick('你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！')">
+      你是一个专业的医生，请解释这个药的用途，并简单讲述如何使用！
+    </UButton>
     </div>
     <div class="flex items-end"> 
-      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
+             @click="handleButtonClick('你是一个专业的医生，如果我感冒咳嗽，该如何治疗！')">
         你是一个专业的医生，如果我感冒咳嗽，该如何治疗！
       </UButton>
-      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
+             @click="handleButtonClick('你是一个专业的医生，如果我发烧干咳，该如何治疗！')">
         你是一个专业的医生，如果我发烧干咳，该如何治疗！
       </UButton>
-      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid">
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
+             @click="handleButtonClick('你是一个专业的医生，如果我拉肚子，该如何治疗！')">
         你是一个专业的医生，如果我拉肚子，该如何治疗！
       </UButton>
     </div>
