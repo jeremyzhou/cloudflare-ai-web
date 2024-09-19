@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {useGlobalState} from "~/utils/store";
 
-//const {openAside, openSettings} = useGlobalState()
-const {openSettings} = useGlobalState()
+const {openAside, openSettings} = useGlobalState()
+//const {openSettings} = useGlobalState()
 
 defineProps<{
   tabs: TabItem[]
