@@ -96,7 +96,7 @@ const handlePaste = (e: ClipboardEvent) => {
 <template>
   <div class="relative">
     <div class="absolute bottom-10 w-full flex flex-col">
-      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white"
+      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" style="display: none;"
                @click="openModelSelect=!openModelSelect">
         {{ selectedModel.name }}
         <template #trailing>
@@ -124,15 +124,15 @@ const handlePaste = (e: ClipboardEvent) => {
         <UButton class="m-1" @click="addHistory = !addHistory" :color="addHistory?'primary':'gray'"
                  icon="i-heroicons-clock-solid"/>
       </UTooltip>
-      <UTooltip v-if="selectedModel.type === 'universal'" :text="$t('add_image') + '(' + $t('support_paste') + ')'">
+      <UTooltip v-if="selectedModel.type === 'universal'" :text="$t('add_image') + '(' + $t('support_paste') + ')'" >
         <UButton @click="handleAddFiles" color="white" class="m-1" icon="i-heroicons-paper-clip-16-solid"/>
       </UTooltip>
       <UTextarea v-model="input" :placeholder="$t('please_input_text') + '...' "
                  @keydown.prevent.enter="handleInput($event)"
                  @paste="handlePaste"
                  autofocus :rows="1" autoresize
-                 style="display: none;"
-                 class="flex-1 max-h-48 overflow-y-auto p-1"/>
+                 class="flex-1 max-h-48 overflow-y-auto p-1"
+                 readonly />
       <UButton @click="handleInput($event)" :disabled="loading" class="m-1">
         {{ $t('send') }}
       </UButton>
