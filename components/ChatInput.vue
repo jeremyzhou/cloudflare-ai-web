@@ -154,21 +154,21 @@ function handleButtonClick(text: string) {
       </UButton>
     </div>
 
-    <div class="flex items-end">
+    <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('假如你是医生，请解释这张化验单上异常指标，并简单分析！用中文回答')">
         假如你是医生，请解释这张化验单上异常指标，并简单分析！
       </UButton>
     </div>
 
-    <div class="flex items-end">
+    <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('假如你是医生，请解释这个药的用途，并简单讲述如何使用！用中文回答')">
         假如你是医生，请解释这个药的用途，并简单讲述如何使用！
       </UButton>
     </div>
 
-    <div class="flex items-end">
+    <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('假如你是医生，如果我感冒咳嗽，该如何治疗！用中文回答')">
         假如你是医生，如果我感冒咳嗽，该如何治疗！
