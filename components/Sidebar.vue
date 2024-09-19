@@ -32,12 +32,10 @@ defineProps<{
     </ol>
     -->
     <div class="flex my-1">
-      <!-- 
       <IButton name="i-heroicons-cog-8-tooth" @click="openSettings=!openSettings"/>
       <UButton class="ml-auto" variant="soft" @click="handleNewChat">
         {{ $t('new_chat') }} +
       </UButton>
-      -->
     </div>
   </aside>
 </template>
