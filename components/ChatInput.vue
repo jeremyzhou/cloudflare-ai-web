@@ -171,15 +171,19 @@ function handleButtonClick(text: string) {
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('假如你是医生，感冒咳嗽的治疗建议，没有其他特别的补充！用中文回答')">
-        假如你是医生，如果我感冒咳嗽，该如何治疗！
+        假如你是医生，感冒咳嗽的治疗建议！
       </UButton>
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('假如你是医生，发烧干咳的治疗建议，没有其他特别的补充！用中文回答')">
-        假如你是医生，如果我发烧干咳，该如何治疗！
+        假如你是医生，发烧干咳的治疗建议！
       </UButton>
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('假如你是医生，拉肚子的治疗建议，没有其他特别的补充！用中文回答')">
-        假如你是医生，如果我拉肚子，该如何治疗！
+        假如你是医生，拉肚子的治疗建议！
+      </UButton>
+      <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
+               @click="handleButtonClick('假如你是医生，头疼头晕的治疗建议，没有其他特别的补充！用中文回答')">
+        假如你是医生，头疼头晕的治疗建议！
       </UButton>
     </div>
   </div>
