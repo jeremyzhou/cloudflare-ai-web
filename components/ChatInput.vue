@@ -154,29 +154,29 @@ function handleButtonClick(text: string) {
 
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('请画出“春天的萌芽”！')">
+               @click="handleButtonClick('假如你是一位画家，请画出“春天的萌芽”！')">
         假如你是一位画家，请画出“春天的萌芽”！
       </UButton>
     </div>
 
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('假如你是医生，请解释这个药的用途，并简单讲述如何使用！用中文回答')">
+               @click="handleButtonClick('假如你是一位画家，请画出“夏天的繁茂”！')">
         假如你是一位画家，请画出“夏天的繁茂”！
       </UButton>
     </div>
 
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('假如你是医生，请解释这个药的用途，并简单讲述如何使用！用中文回答')">
+               @click="handleButtonClick('假如你是一位画家，请画出“秋天的收获”！')">
         假如你是一位画家，请画出“秋天的收获”！
       </UButton>
     </div>
 
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('假如你是医生，请解释这个药的用途，并简单讲述如何使用！用中文回答')">
-        假如你是一位画家，请画出“冬天的休眠“
+               @click="handleButtonClick('假如你是一位画家，请画出“冬天的休眠“！')">
+        假如你是一位画家，请画出“冬天的休眠“！
       </UButton>
     </div>
     
