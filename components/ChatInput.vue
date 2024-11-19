@@ -139,15 +139,13 @@ function handleButtonClick(text: string) {
         <UButton class="m-1" @click="addHistory = !addHistory" :color="addHistory ? 'primary' : 'gray'"
                  icon="i-heroicons-clock-solid"/>
       </UTooltip>
-      <UTooltip v-if="selectedModel.type === 'universal'" :text="$t('add_image') + '(' + $t('support_paste') + ')'" >
-        <UButton @click="handleAddFiles" color="white" class="m-1" icon="i-heroicons-paper-clip-16-solid"/>
-      </UTooltip>
 
       <UTextarea v-model="input" :placeholder="$t('please_input_text') + '...'"
                  @keydown.prevent.enter="handleInput"
                  @paste="handlePaste"
                  autofocus :rows="1" autoresize
                  class="flex-1 max-h-48 overflow-y-auto p-1"
+                 readonly
                  />
       <UButton @click="handleInput" :disabled="loading" class="m-1">
         {{ $t('send') }}
