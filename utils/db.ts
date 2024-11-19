@@ -131,22 +131,22 @@ export const textGenModels: Model[] = [{
 //     type: 'chat'
 }]
 
-// export const imageGenModels: Model[] = [{
-//     id: '@cf/lykon/dreamshaper-8-lcm',
-//     name: 'dreamshaper-8-lcm',
-//     provider: 'workers-ai-image',
-//     type: 'text-to-image'
-// }, {
-//     id: '@cf/stabilityai/stable-diffusion-xl-base-1.0',
-//     name: 'stable-diffusion-xl-base-1.0',
-//     provider: 'workers-ai-image',
-//     type: 'text-to-image'
-// }, {
-//     id: '@cf/bytedance/stable-diffusion-xl-lightning',
-//     name: 'stable-diffusion-xl-lightning',
-//     provider: 'workers-ai-image',
-//     type: 'text-to-image'
-// }]
+export const imageGenModels: Model[] = [{
+    id: '@cf/lykon/dreamshaper-8-lcm',
+    name: 'dreamshaper-8-lcm',
+    provider: 'workers-ai-image',
+    type: 'text-to-image'
+}, {
+    id: '@cf/stabilityai/stable-diffusion-xl-base-1.0',
+    name: 'stable-diffusion-xl-base-1.0',
+    provider: 'workers-ai-image',
+    type: 'text-to-image'
+}, {
+    id: '@cf/bytedance/stable-diffusion-xl-lightning',
+    name: 'stable-diffusion-xl-lightning',
+    provider: 'workers-ai-image',
+    type: 'text-to-image'
+}]
 
-//export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]
-export const models: Model[] = [...uniModals, ...textGenModels]
+export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]
+//export const models: Model[] = [...uniModals, ...textGenModels]
