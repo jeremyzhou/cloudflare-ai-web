@@ -79,13 +79,7 @@ export const uniModals: Model[] = [
         name: 'Gemini 1.5 Pro',
         provider: 'google',
         type: 'universal'
-    },
-    {
-        id: 'Imagen 3',
-        name: 'Imagen 3 ',
-        provider: 'google',
-        type: 'text-to-image'
-    },
+    }
 ]
 
 export const textGenModels: Model[] = [{
