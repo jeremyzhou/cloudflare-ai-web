@@ -142,4 +142,4 @@ export const imageGenModels: Model[] = [{
     type: 'text-to-image'
 }]
 
-export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]
+export const models: Model[] = [...imageGenModels, ...uniModals]
