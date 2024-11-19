@@ -117,10 +117,10 @@ function handleButtonClick(text: string) {
         </template>
       </UButton>
 
-      <ul v-if="selectedModel.type === 'universal'" style="margin: 0" 
+      <ul v-if="selectedModel.type === 'text-to-image'" style="margin: 0" 
           class="flex flex-wrap bg-white dark:bg-[#121212] rounded-t-md">
         <li v-for="file in fileList" :key="file.url" class="relative group/img">
-          <button @click="fileList.splice(fileList.indexOf(file), 1)"
+          <button @click="fileList.splice(fileList.indexOf(file), 3)"
                   class="absolute z-10 hidden group-hover/img:block rounded-full bg-neutral-100 right-0 hover:brightness-75 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 16 16">
               <path fill="currentColor"
