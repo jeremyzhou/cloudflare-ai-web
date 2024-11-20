@@ -27,8 +27,8 @@ const groups = computed(() => [
       label: i.name
     }))
   }.{
-    key: 'text generation',
-    label: t('text_generation'),
+    key: 'text to image',
+    label: t('text-to-image'),
     commands: imageGenModels.map(i => ({
       id: i.id,
       label: i.name
