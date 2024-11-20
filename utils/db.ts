@@ -67,20 +67,20 @@ export const initialSettings = {
 
 export type Settings = typeof initialSettings
 
-// export const uniModals: Model[] = [
-//     {
-//         id: 'gemini-1.5-flash',
-//         name: 'Gemini 1.5 flash',
-//         provider: 'google',
-//         type: 'universal'
-//     },
-//     {
-//         id: 'gemini-1.5-pro',
-//         name: 'Gemini 1.5 Pro',
-//         provider: 'google',
-//         type: 'universal'
-//     }
-// ]
+export const uniModals: Model[] = [
+    {
+        id: 'gemini-1.5-flash',
+        name: 'Gemini 1.5 flash',
+        provider: 'google',
+        type: 'universal'
+    },
+    {
+        id: 'gemini-1.5-pro',
+        name: 'Gemini 1.5 Pro',
+        provider: 'google',
+        type: 'universal'
+    }
+]
 
 // export const textGenModels: Model[] = [{
 //     id: 'gpt-3.5-turbo',
@@ -142,4 +142,4 @@ export const imageGenModels: Model[] = [{
     type: 'text-to-image'
 }]
 
-export const models: Model[] = [...imageGenModels]
+export const models: Model[] = [...uniModals, ...imageGenModels]
