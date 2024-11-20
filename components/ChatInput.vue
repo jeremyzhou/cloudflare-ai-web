@@ -117,7 +117,7 @@ function handleButtonClick(text: string) {
         </template>
       </UButton>
 
-      <ul v-if="selectedModel.type === 'text-to-image'" style="margin: 0" 
+      <ul v-if="selectedModel.type === 'universal'" style="margin: 0" 
           class="flex flex-wrap bg-white dark:bg-[#121212] rounded-t-md">
         <li v-for="file in fileList" :key="file.url" class="relative group/img">
           <button @click="fileList.splice(fileList.indexOf(file), 3)"
