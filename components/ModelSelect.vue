@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {uniModals,imageGenModels} from "~/utils/db";
+import {uniModals,textGenModels,imageGenModels} from "~/utils/db";
 
 const {t} = useI18n()
 const {selectedModel, openModelSelect} = useGlobalState()
 onMounted(() => {
   const model = localStorage.getItem('selectedModel')
-  selectedModel.value = models.find(i => i.id === model) || imageGenModels[0]
+  selectedModel.value = models.find(i => i.id === model) || uniModals[0]
 })
 watch(selectedModel, v => {
   localStorage.setItem('selectedModel', v.id)
@@ -23,6 +23,13 @@ const groups = computed(() => [
     key: 'text generation',
     label: t('text_generation'),
     commands: textGenModels.map(i => ({
+      id: i.id,
+      label: i.name
+    }))
+  }.{
+    key: 'text generation',
+    label: t('text_generation'),
+    commands: imageGenModels.map(i => ({
       id: i.id,
       label: i.name
     }))
