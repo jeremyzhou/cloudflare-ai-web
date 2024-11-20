@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {uniModals} from "~/utils/db";
+import {imageGenModels} from "~/utils/db";
 
 const {t} = useI18n()
 const {selectedModel, openModelSelect} = useGlobalState()
 onMounted(() => {
   const model = localStorage.getItem('selectedModel')
-  selectedModel.value = models.find(i => i.id === model) || uniModals[0]
+  selectedModel.value = models.find(i => i.id === model) || imageGenModels[2]
 })
 watch(selectedModel, v => {
   localStorage.setItem('selectedModel', v.id)
@@ -15,7 +15,7 @@ const groups = computed(() => [
   {
     key: 'universal',
     label: t('universal'),
-    commands: uniModals.map(i => ({
+    commands: imageGenModels.map(i => ({
       id: i.id,
       label: i.name
     }))
