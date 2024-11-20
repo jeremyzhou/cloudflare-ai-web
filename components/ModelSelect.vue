@@ -5,7 +5,7 @@ const {t} = useI18n()
 const {selectedModel, openModelSelect} = useGlobalState()
 onMounted(() => {
   const model = localStorage.getItem('selectedModel')
-  selectedModel.value = models.find(i => i.id === model) || imageGenModels[2]
+  selectedModel.value = models.find(i => i.id === model) || imageGenModels[0]
 })
 watch(selectedModel, v => {
   localStorage.setItem('selectedModel', v.id)
