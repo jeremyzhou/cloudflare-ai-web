@@ -109,7 +109,7 @@ function handleButtonClick(text: string) {
 <template>
   <div class="relative">
     <div class="absolute bottom-10 w-full flex flex-col" style="max-width: 33.3333%">
-      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white"
+      <UButton class="self-center drop-shadow-xl mb-1 blur-global" color="white" style="display: none;"
                @click="openModelSelect = !openModelSelect">
         {{ selectedModel.name }}
         <template #trailing>
