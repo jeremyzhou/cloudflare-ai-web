@@ -161,6 +161,8 @@ function handleButtonClick(text: string) {
                @click="handleButtonClick('探索节气生长的力量，请画出“夏天的繁茂”！')">
         假如你是一位画家，探索节气生长的力量，请画出“夏天的繁茂”！
       </UButton>
+    </div>
+    <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
                @click="handleButtonClick('探索节气生长的力量，请画出“秋天的收获”！')">
         假如你是一位画家，探索节气生长的力量，请画出“秋天的收获”！
