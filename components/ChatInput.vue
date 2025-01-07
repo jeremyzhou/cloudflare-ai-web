@@ -154,21 +154,21 @@ function handleButtonClick(text: string) {
 
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('一起探索节气生长的力量，请画出一副万物复苏的春天风景画，避免出现人物画！')">
+               @click="handleButtonClick('画一副春天的萌芽：一条小路穿过一片田野，两侧是盛开的油菜花，金黄的花海随风荡漾。小溪蜿蜒而过，岸边长满了新发的青草，几只小鸭子在水中嬉戏。近处是一棵古老的杏树，满树粉白的花瓣如雪般飘落，地上铺了一层花毯。远方是连绵的青山，山间薄雾缭绕。田野中，有农民在播种，象征着新的希望。一切都沐浴在温暖的春光中，生机勃勃，万物复苏。！')">
         假如你是一位画家，探索节气生长的力量，请画出“春天的萌芽”！
       </UButton>
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('一起探索节气生长的力量，请画出关于枝繁叶茂的树枝上蝉鸣叫的画，避免出现人物画！')">
+               @click="handleButtonClick('画一副夏天的繁茂：阳光下的夏日世界：浓密的绿荫覆盖大地，果实累累，稻田与向日葵齐齐映衬，荷花在池塘中盛开，鸟鸣蝉唱不绝于耳，生命的力量在热烈的阳光下无限绽放。')">
         假如你是一位画家，探索节气生长的力量，请画出“夏天的繁茂”！
       </UButton>
     </div>
     <div class="flex items-end justify-end">
       <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('一起探索节气生长的力量，请画出关于一副秋天硕果累累水果丰收画，避免出现人物画！')">
+               @click="handleButtonClick('画一副秋天的收获：秋天的田园充满了金黄的色彩：成熟的稻谷、累累的果实、缤纷的落叶交织成一幅丰收的画卷。农民忙碌收割，欢声笑语弥漫在空气中，阳光将每一寸土地都染上了温暖的金色。')">
         假如你是一位画家，探索节气生长的力量，请画出“秋天的收获”！
       </UButton>
        <UButton color="white" class="m-1" icon="i-arrow-long-left-16-solid"
-               @click="handleButtonClick('一起探索节气生长的力量，请画出一副动物冬眠的画，避免出现人物画！')">
+               @click="handleButtonClick('画一副冬天的休眠：冬天的大地沉入宁静，田野被白雪覆盖，树木光秃但坚韧，冰封的湖泊静静矗立，万物在休眠中蓄积力量，为来年的复苏做准备。')">
         假如你是一位画家，探索节气生长的力量，请画出“冬天的休眠“！
       </UButton>
     </div>
